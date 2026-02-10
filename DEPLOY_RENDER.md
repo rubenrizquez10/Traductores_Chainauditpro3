@@ -39,7 +39,7 @@ git push origin main
 - **Runtime**: `Python 3`
 - **Build Command**: 
   ```bash
-  npm ci && npx vite build && pip install -r backend/requirements.txt
+  npm ci && npx vite build && pip install -r requirements.txt
   ```
 - **Start Command**: 
   ```bash

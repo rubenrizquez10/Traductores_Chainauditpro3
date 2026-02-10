@@ -17,7 +17,7 @@ git push origin main
 
 **Build Command:**
 ```bash
-npm ci && npx vite build && pip install -r backend/requirements.txt
+npm ci && npx vite build && pip install -r requirements.txt
 ```
 
 **Start Command:**

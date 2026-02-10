@@ -4,7 +4,7 @@ services:
     name: blockchain-analyzer
     env: python
     region: oregon
-    buildCommand: "npm ci && npx vite build && pip install -r backend/requirements.txt"
+    buildCommand: "npm ci && npx vite build && pip install -r requirements.txt"
     startCommand: "gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120"
     envVars:
       - key: PYTHON_VERSION
