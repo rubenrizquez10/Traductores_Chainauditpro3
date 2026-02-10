@@ -1,0 +1,13 @@
+services:
+  # Aplicación completa (Frontend + Backend)
+  - type: web
+    name: blockchain-analyzer
+    env: python
+    region: oregon
+    buildCommand: "npm install && npm run build && cd backend && pip install -r requirements.txt"
+    startCommand: "cd backend && gunicorn app:app -c gunicorn_config.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: NODE_VERSION
+        value: 18
