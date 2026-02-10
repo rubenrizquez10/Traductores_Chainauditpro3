@@ -39,17 +39,17 @@ git push origin main
 - **Runtime**: `Python 3`
 - **Build Command**: 
   ```bash
-  npm install && npm run build && cd backend && pip install -r requirements.txt
+  npm install && npm run build && pip install -r backend/requirements.txt
   ```
 - **Start Command**: 
   ```bash
-  cd backend && gunicorn app:app -c gunicorn_config.py
+  cd backend && gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120
   ```
 - **Instance Type**: `Free`
 
 **Variables de Entorno:**
 - `PYTHON_VERSION` = `3.11.0`
-- `NODE_VERSION` = `18`
+- `NODE_VERSION` = `20`
 
 ### Paso 3: Desplegar
 Click en "Create Web Service" y espera a que termine el despliegue (5-10 minutos).
@@ -79,7 +79,7 @@ npm run build
 # Iniciar servidor (sirve frontend + backend)
 cd backend
 pip install -r requirements.txt
-gunicorn app:app -c gunicorn_config.py
+gunicorn app:app --bind 0.0.0.0:10000 --workers 2 --threads 4 --timeout 120
 ```
 
 Luego abre: `http://localhost:10000`
@@ -123,7 +123,7 @@ cat requirements.txt | grep gunicorn
 
 ### La aplicación no carga
 1. Revisa los logs en Render Dashboard
-2. Verifica que el puerto sea `10000` (configurado en `gunicorn_config.py`)
+2. Verifica que Render esté usando la variable `$PORT` automáticamente
 3. Asegúrate de que el build completó exitosamente
 
 ### Cambios no se reflejan

@@ -17,17 +17,17 @@ git push origin main
 
 **Build Command:**
 ```bash
-npm install && npm run build && cd backend && pip install -r requirements.txt
+npm install && npm run build && pip install -r backend/requirements.txt
 ```
 
 **Start Command:**
 ```bash
-cd backend && gunicorn app:app -c gunicorn_config.py
+cd backend && gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120
 ```
 
 **Environment Variables:**
 - `PYTHON_VERSION` = `3.11.0`
-- `NODE_VERSION` = `18`
+- `NODE_VERSION` = `20`
 
 5. Click "Create Web Service"
 
@@ -57,3 +57,9 @@ Abrir: http://localhost:5000
 ## ¿Problemas?
 
 Ver logs en Render Dashboard → Tu servicio → "Logs"
+
+### Error común: "vite: Permission denied"
+Ya está solucionado. Usa los comandos de arriba exactamente como están.
+
+### Error: "Module not found"
+Verifica que el Build Command incluya `pip install -r backend/requirements.txt`
