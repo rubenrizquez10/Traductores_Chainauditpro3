@@ -39,11 +39,11 @@ git push origin main
 - **Runtime**: `Python 3`
 - **Build Command**: 
   ```bash
-  npm ci && npx vite build && cd backend && pip install -r requirements.txt
+  npm ci && npx vite build && pip install -r backend/requirements.txt
   ```
 - **Start Command**: 
   ```bash
-  cd backend && python -m gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120
+  gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120
   ```
 - **Instance Type**: `Free`
 
