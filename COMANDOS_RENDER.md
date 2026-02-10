@@ -17,7 +17,7 @@ git push origin main
 
 **Build Command:**
 ```bash
-npm ci && npx vite build && pip install gunicorn && pip install -r backend/requirements.txt
+npm ci && npx vite build && cd backend && pip install -r requirements.txt
 ```
 
 **Start Command:**
